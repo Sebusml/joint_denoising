@@ -1,0 +1,9 @@
+#!/bin/bash
+#sudo apt-get install gcc libcurl4-openssl-dev libexpat1-dev
+wget http://physionet.org/physiotools/wfdb.tar.gz
+tar xfvz wfdb.tar.gz
+cd wfdb-10.m.n
+./configure
+make install
+make check
+
