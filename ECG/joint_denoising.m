@@ -100,14 +100,14 @@
 % ax.View = [-13.5 48];
 
 %% Thresholding
-data = csvread('patient001_s0010.csv',2,0);
+patient = load('s0001_rem.mat');
+data = patient.val';
 N = 512*3;
-%N = 512*10;
 L = 15;
 offset = 0;
 
 % Tomar ventana de datos
-X = data(1+offset:offset+N,2:L+1);
+X = data(1+offset:offset+N,:);
 C = zeros(size(X));
 M = C;
 Xa = X;
@@ -131,8 +131,9 @@ for i=1:15
     end
     %plot error n-esimo
     subplot (4,4,i)   
-    stem(error)
-    xlim([1 200]);ylim([0 5]);
+    title(sprintf('Lead %d ',i))
+    plot(error)
+    xlim([1 200]); %ylim([0 5]);
 end
 % Sup M* = 50;
 %% EXP2

@@ -1,0 +1,10 @@
+#!/bin/bash
+#Para un paciente
+#
+#wfdb2mat -r ptbdb/patient002/s0010_re -f 0 -t 10 -l s1000000 > s0010_rem.info
+#
+while read line; do
+  name=$(echo $line | sed s-/-_- )
+   echo wfdb2mat -r ptbdb/$line -f 0 -t 10 -l s1000000  > $name.info
+done <RECORDS.txt
+
